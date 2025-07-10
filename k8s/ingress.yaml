@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-node-app
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "node.test.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: simple-node-app
+            port:
+              number: 8080

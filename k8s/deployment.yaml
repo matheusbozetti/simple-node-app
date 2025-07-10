@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-node-app
+  labels:
+    app: simple-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-node-app
+  template:
+    metadata:
+      labels:
+        app: simple-node-app
+    spec:
+      containers:
+      - name: simple-node-app
+        image: matheusbozetti/simple-node-app:v1
+        ports:
+        - containerPort: 3030

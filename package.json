@@ -1,0 +1,24 @@
+{
+  "name": "simple-node-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --experimental-strip-types --watch --no-warnings server/index.ts",
+    "start": "node --experimental-strip-types --no-warnings server/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cors": "^11.0.1",
+    "@js-temporal/polyfill": "^0.5.1",
+    "fastify": "^5.4.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.2",
+    "@types/node": "^24.0.13",
+    "typescript": "^5.8.3"
+  }
+}
