@@ -13,6 +13,7 @@ app.get("/api/v1/details", () => {
   return {
     hostname: os.hostname(),
     time: now,
+    message: "Update data",
   };
 });
 
