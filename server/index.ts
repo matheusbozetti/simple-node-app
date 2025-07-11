@@ -11,6 +11,7 @@ app.get("/api/v1/details", () => {
   const now = Temporal.Now.instant();
 
   return {
+    message: "Welcome",
     hostname: os.hostname(),
     time: now,
   };
