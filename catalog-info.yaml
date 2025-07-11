@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: simple-node-app
+  description: Simple node application.
+  annotations:
+    github.com/project-slug: matheusbozetti/simple-node-app
+spec:
+  type: service
+  lifecycle: experimental
+  owner: development
