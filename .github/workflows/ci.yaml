@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     paths:
-      - src/**
+      - server/**
     branches:
       - main
 
@@ -22,4 +22,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: matheusbozetti/simple-node-app:${GITHUB_SHA::6}
+          tags: matheusbozetti/simple-node-app:${{ github.sha }}
