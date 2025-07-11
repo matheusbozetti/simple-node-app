@@ -17,9 +17,18 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Shorten commit id
+        shell: bash
+        run: |
+          github_sha_hash=${{ github.sha }}
+          github_sha_short="${github_sha_hash:0:7}"
+
+          echo "GitHub Short Commit Hash: ${github_sha_short}"
+          echo "COMMIT_ID=${github_sha_short}" >> "$GITHUB_ENV"
+
       -
         name: Build and push
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: matheusbozetti/simple-node-app:${{ github.sha }}
+          tags: matheusbozetti/simple-node-app:${{ env.COMMIT_ID }}
