@@ -17,7 +17,7 @@ app.get("/api/v1/details", () => {
   };
 });
 
-app.get("/api/v1/healthz", () => {
+app.get("/healthz", () => {
   return {
     status: "up",
   };
