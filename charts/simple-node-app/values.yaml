@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: matheusbozetti/simple-node-app
   pullPolicy: IfNotPresent
-  tag: b0328f8
+  tag: 3ae9919
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -20,7 +20,7 @@ service:
   port: 3030
 ingress:
   enabled: true
-  className: "alb"  # <-- use alb em vez de nginx
+  className: "alb"
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
