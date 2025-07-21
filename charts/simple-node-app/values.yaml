@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: matheusbozetti/simple-node-app
   pullPolicy: IfNotPresent
-  tag: 3ae9919
+  tag: 2b70dc1
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
@@ -25,10 +25,8 @@ ingress:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    # Importante para Cloudflare
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
-    # Para aceitar IPs do Cloudflare
     alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true
   hosts:
     - host: node-app.tbdc-dev.com.br
