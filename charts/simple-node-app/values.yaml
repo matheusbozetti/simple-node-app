@@ -20,12 +20,12 @@ service:
   port: 3030
 ingress:
   enabled: true
-  className: "alb"  # <-- use alb em vez de nginx
+  className: "alb"
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:982534370131:certificate/SEU-CERTIFICADO-ARN
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:982534370131:certificate/9070ab98-c96d-4c30-adfa-1edcd89e9d5f
     alb.ingress.kubernetes.io/backend-protocol: HTTP
   hosts:
     - host: node-app.tbdc-dev.com.br
