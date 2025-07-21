@@ -25,10 +25,11 @@ ingress:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+    # Importante para Cloudflare
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
     alb.ingress.kubernetes.io/ssl-redirect: '443'
-    alb.ingress.kubernetes.io/backend-protocol: HTTP
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:982534370131:certificate/9070ab98-c96d-4c30-adfa-1edcd89e9d5f
+    # Para aceitar IPs do Cloudflare
+    alb.ingress.kubernetes.io/load-balancer-attributes: routing.http2.enabled=true
   hosts:
     - host: node-app.tbdc-dev.com.br
       paths:
