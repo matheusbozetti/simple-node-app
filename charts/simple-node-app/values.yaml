@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 image:
   repository: matheusbozetti/simple-node-app
   pullPolicy: IfNotPresent
