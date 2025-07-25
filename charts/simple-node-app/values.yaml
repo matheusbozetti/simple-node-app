@@ -3,21 +3,31 @@ image:
   repository: matheusbozetti/simple-node-app
   pullPolicy: IfNotPresent
   tag: 2b70dc1
+
 imagePullSecrets: []
+
 nameOverride: ""
+
 fullnameOverride: ""
+
 serviceAccount:
   create: false
   automount: true
   annotations: {}
   name: ""
+
 podAnnotations: {}
+
 podLabels: {}
+
 podSecurityContext: {}
+
 securityContext: {}
+
 service:
   type: ClusterIP
   port: 3030
+
 ingress:
   enabled: true
   className: "alb"
@@ -31,6 +41,7 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-path: /healthz
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
     alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/group.name: "default-ingress"
   hosts:
     - host: node-app.tbdc-dev.com.br
       paths:
@@ -39,22 +50,31 @@ ingress:
   tls:
     - hosts:
         - node-app.tbdc-dev.com.br
+
 resources: {}
+
 livenessProbe:
   httpGet:
     path: /healthz
     port: http
+
 readinessProbe:
   httpGet:
     path: /healthz
     port: http
+
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
+
 volumes: []
+
 volumeMounts: []
+
 nodeSelector: {}
+
 tolerations: []
+
 affinity: {}
