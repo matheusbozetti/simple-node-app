@@ -17,17 +17,31 @@ app.get("/api/v1/details", () => {
   };
 });
 
+app.get("/api/v1/info", async () => {
+  const data = await fetch(`${process.env.SERVICE_A_ENDPOINT}/api/v1/details`);
+
+  const now = Temporal.Now.instant();
+  return {
+    message: "Get your info",
+    hostname: os.hostname(),
+    time: now,
+    dataFromAnotherService: await data.json(),
+  };
+});
+
 app.get("/healthz", () => {
   return {
     status: "up",
   };
 });
 
+const port = process.env.PORT ?? 3030;
+
 app
   .listen({
     host: "0.0.0.0",
-    port: 3030,
+    port: Number(port),
   })
   .then(() => {
-    console.log(`HTTP Server running on 3030`);
+    console.log(`HTTP Server running on ${port}`);
   });

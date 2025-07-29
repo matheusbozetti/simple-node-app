@@ -38,7 +38,7 @@ jobs:
           push: true
           tags: matheusbozetti/simple-node-app:${{ env.COMMIT_ID }}
           # platforms: linux/amd64,linux/arm64
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
     outputs:
       commit_id: ${{ env.COMMIT_ID }}
 
