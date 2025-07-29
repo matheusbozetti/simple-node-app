@@ -2,32 +2,22 @@ replicaCount: 2
 image:
   repository: matheusbozetti/simple-node-app
   pullPolicy: IfNotPresent
-  tag: 2b70dc1
-
+  tag: 19536bc
 imagePullSecrets: []
-
 nameOverride: ""
-
 fullnameOverride: ""
-
 serviceAccount:
   create: false
   automount: true
   annotations: {}
   name: ""
-
 podAnnotations: {}
-
 podLabels: {}
-
 podSecurityContext: {}
-
 securityContext: {}
-
 service:
   type: ClusterIP
   port: 3030
-
 ingress:
   enabled: true
   className: "alb"
@@ -50,31 +40,22 @@ ingress:
   tls:
     - hosts:
         - node-app.tbdc-dev.com.br
-
 resources: {}
-
 livenessProbe:
   httpGet:
     path: /healthz
     port: http
-
 readinessProbe:
   httpGet:
     path: /healthz
     port: http
-
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-
 volumes: []
-
 volumeMounts: []
-
 nodeSelector: {}
-
 tolerations: []
-
 affinity: {}

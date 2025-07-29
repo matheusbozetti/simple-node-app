@@ -14,6 +14,8 @@ app.get("/api/v1/details", () => {
     message: "Page loaded using temporal.",
     hostname: os.hostname(),
     time: now,
+    dbUsername: process.env.DB_USERNAME ?? "not-set",
+    dbPassword: process.env.DB_PASSWORD ?? "not-set",
   };
 });
 
@@ -25,7 +27,9 @@ app.get("/api/v1/info", async () => {
     message: "Get your info",
     hostname: os.hostname(),
     time: now,
-    dataFromAnotherService: await data.json(),
+    dbUsername: process.env.DB_USERNAME ?? "not-set",
+    dbPassword: process.env.DB_PASSWORD ?? "not-set",
+    [process.env.SERVICE_A_ENDPOINT || "data"]: await data.json(),
   };
 });
 

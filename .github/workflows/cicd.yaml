@@ -10,7 +10,7 @@ on:
 
 jobs:
   ci:
-    runs-on: self-hosted
+    runs-on: ubuntu
     steps:
       -
         name: Login to Docker Hub
