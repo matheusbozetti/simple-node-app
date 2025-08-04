@@ -2,7 +2,7 @@ replicaCount: 2
 image:
   repository: matheusbozetti/simple-node-app
   pullPolicy: IfNotPresent
-  tag: 19536bc
+  tag: c68cfd2
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
